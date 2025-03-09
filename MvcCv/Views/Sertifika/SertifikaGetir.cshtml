@@ -1,0 +1,25 @@
+﻿@model MvcCv.Models.Entity.TblSertifikalarim
+@{
+    ViewBag.Title = "SertifikaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        CKEDITOR.replace('editor');
+    });
+
+</script><h3>Sertifika Düzenleme Sayfası</h3>
+         <form method="post">
+
+             <br />
+             @Html.Label("Sertifka Açıklaması")
+             @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control ", @rows = "4", @id = "editor" })
+             <br />
+             @Html.Label("Tarih")
+             @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+             <br />
+             <button class="btn btn-outline-warning">Güncelle</button>
+             <a href="/Sertifika/SertifikaSil/@ViewBag.d" class="btn btn-outline-danger">Sil</a>
+             <a href="/Sertifika/Index/" class="btn btn-outline-success">Geri Dön</a>
+         </form>

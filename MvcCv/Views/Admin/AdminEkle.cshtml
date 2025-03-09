@@ -1,0 +1,25 @@
+﻿@model MvcCv.Models.Entity.TblAdmin
+
+
+@{
+    ViewBag.Title = "AdminEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Yeni Kullanıcı Ekleme Sayfası</h3>
+<br />
+<form method="post">
+    <label>Kullanıcı Adı</label>
+    <input type="text" name="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı Giriniz" />
+    @Html.ValidationMessageFor(x => x.KullaniciAdi, "", new { @style = "color:red" })
+    <br />
+
+    <label>Şifre</label>
+    <input type="password" name="Sifre" class="form-control" placeholder="Şifrenizi Giriniz" />
+    @Html.ValidationMessageFor(x => x.Sifre, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-outline-success"> Yeni  Kullanıcı Ekle</button>
+    <a href="/Admin/Index/" class="btn btn-outline-warning">Vazgeç</a>
+</form>
+

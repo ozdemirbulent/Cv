@@ -1,0 +1,115 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblSosyalMedya>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{string renk = " "; }
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <br />
+                                <h3 class="card-title" style="color:brown">Sosyal Medya Hesaplarım</h3>
+                            </div>
+                            <div class="card-body">
+
+                                <br />
+                                <br />
+                                <table class="table table-bordered table table-striped-columns">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>SosyalMedya</th>
+                                            <th>Durum</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Durum == true)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
+                                            if (item.Durum == false)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                            }
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Ad</td>
+                                                <td class="@renk">@item.Durum</td>
+
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/SosyalMedya/SayfaGetir/
+                                                       @item.ID">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Sil", "Sil", new { ID = item.ID },
+                                             new { @class = "btn btn-danger", onclick = "return confirm ( 'Silmek İstediğinizden Emin misin ?')" })
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="btn btn-outline-warning" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabı Ekle</button>
+        
+
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"> Sosyal Medya  Ekleme Penceresi</h2>
+                    </div>
+                    <form method="post" action="/SosyalMedya/Ekle">
+
+                        <div class="modal-body">
+                            <label>Sosyal Medya İsmi</label>
+                            <input type="text" name="Ad" class="form-control" />
+
+                            <label>Sosyal Medya linki</label>
+                            <input type="text" name="Link" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya İkonu</label>
+                            <input type="text" name="ikon" class="form-control" />
+                            <br />
+                            <button class="btn btn-success">Kaydet</button>
+                            <a href="/SosyalMedya/Index/" class="btn btn-outline-warning">Vazgeç</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

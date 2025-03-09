@@ -1,0 +1,137 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblYeteneklerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{string renk = " "; }
+@{string labelrenk = " "; }
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <br />
+                                <h3 class="card-title" style="color:brown">Yetenek Listesi</h3>
+                            </div>
+                            <div class="card-body">
+                                <br />
+                                <table class="table table-bordered table table-dark" id="myTable">
+                                    <thead>
+
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.Oran >= 0 && item.Oran <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                labelrenk = "badge bg-danger";
+                                            }
+                                            if (item.Oran >= 51 && item.Oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                labelrenk = "badge bg-warning";
+                                            }
+                                            if (item.Oran >= 71 && item.Oran <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                labelrenk = "badge bg-primary";
+                                            }
+                                            if (item.Oran >= 85 && item.Oran <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                                labelrenk = "badge bg-success";
+                                            }
+
+
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Yetenek</td>
+
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @item.Oran%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@labelrenk">@item.Oran%</span></td>
+
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/Yetenek/YetenekDuzenle/
+                                                       @item.ID">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                @*<a class="btn btn-danger btn-sm" href="/Yetenek/YetenekSil/ </a>@item.ID">*@
+
+
+                                                <td>
+                                                    @Html.ActionLink("Sil", "YetenekSil", new { ID = item.ID },
+                                                   new { @class = "btn btn-danger", onclick = "return confirm ( 'Silmek İstediğinizden Emin misin ?')" })
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Yetenek/YeniYetenek/" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
+
+
+                            </div>
+
+                            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                            <link href="~/Content/bootstrap.css" rel="stil sayfası" />
+
+                            <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+                            <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+                            <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+                            <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+                            <script type="text/javascript">
+                                var js = jQuery.noConflict(true);
+                                js(document).ready(function () {
+                                    js('#myTable').DataTable(
+
+                                        {
+                                            "language": {
+                                                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                                            }
+                                        }
+                                    );
+                                });
+                            </script>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

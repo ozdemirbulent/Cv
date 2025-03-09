@@ -1,0 +1,26 @@
+﻿@model MvcCv.Models.Entity.TblSertifikalarim
+@{
+    ViewBag.Title = "YeniSertifika";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h3 style="color:darkblue"> Yeni Sertifika Ekleme Sayfası</h3>
+<form method="post">
+
+    <br />
+    @Html.Label("Sertifika Açıklaması")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Aciklama, "", new { @style = "color:darkred" })
+
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+    <a href="/Sertifika/Index/" class="btn btn-outline-warning">Vazgeç</a>
+</form>
+
+

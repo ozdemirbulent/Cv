@@ -1,0 +1,32 @@
+﻿@model MvcCv.Models.Entity.TblDeneyimlerim
+
+@{
+    ViewBag.Title = "DeneyimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Yeni Deneyim Ekleme Sayfası</h3>
+<br />
+<form method="post">
+    <label>Başlık</label>
+    <input type="text" name="Baslik" class="form-control" placeholder="Başlık Giriniz" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:red" })
+    <br />
+
+    <label>Alt Başlık</label>
+    <input type="text" name="AltBaslik" class="form-control" placeholder="Alt Başlık" />
+    @Html.ValidationMessageFor(x => x.AltBaslik, "", new { @style = "color:red" })
+    <br />
+
+    <label>Tarih</label>
+    <input type="text" name="Tarih" class="form-control" placeholder="Tarih Giriniz" />
+    @Html.ValidationMessageFor(x => x.Tarih, "", new { @style = "color:red" })
+    <br />
+    <label>Açıklama</label>
+    <textarea placeholder="Açıklamayı Giriniz" rows="5" name="Aciklama" class="form-control"></textarea>
+    <br />
+
+    <button class="btn btn-outline-info">Kaydet</button>
+    <a href="/Deneyim/Index/" class="btn btn-outline-warning">Vazgeç</a>
+
+</form>

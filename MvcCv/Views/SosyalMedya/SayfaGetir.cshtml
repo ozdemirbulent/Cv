@@ -1,0 +1,26 @@
+﻿
+@model MvcCv.Models.Entity.TblSosyalMedya
+@{
+    ViewBag.Title = "SayfaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Sosyal Medya Hesap Düzenleme Sayfası</h3>
+<form method="post">
+
+    <br />
+    @Html.Label("Sosyal Medya Adı")
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Ad, "", new { @style = "color:darkblack" })
+
+    <br />
+    @Html.Label("Link")
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    @Html.Label("İkon")
+    @Html.TextBoxFor(x => x.ikon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Güncelle</button>
+    <a href="/SosyalMedya/Index/" class="btn btn-outline-danger">Geri Dön</a>
+</form>
+
