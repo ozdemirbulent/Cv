@@ -11,19 +11,13 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TblEgitimlerim
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = " lütfen boþ býrakmayýnýz " )]
         public string Baslik { get; set; }
-        [Required(ErrorMessage = " lütfen boþ býrakmayýnýz ")]
         public string AltBaslik1 { get; set; }
-        [Required(ErrorMessage = " lütfen boþ býrakmayýnýz ")]
         public string AltBaslik2 { get; set; }
-        [Required(ErrorMessage = " lütfen boþ býrakmayýnýz ")]
-        [MaxLength(5,ErrorMessage = "5 karakterden fazla girmeyiniz")]
         public string GNO { get; set; }
         public string Tarih { get; set; }
     }
