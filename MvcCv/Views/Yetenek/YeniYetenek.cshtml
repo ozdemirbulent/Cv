@@ -1,23 +1,33 @@
 ﻿@model MvcCv.Models.Entity.TblYeteneklerim
 @{
-    ViewBag.Title = "YeniYetenek";
+    ViewBag.Title = "Yeni Yetenek";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3> Yeni Yetenek Ekleme Sayfası</h3>
+<div class="container mt-5">
+    <div class="card shadow-sm rounded-3">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Yeni Yetenek Ekle</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.Yetenek, "Yetenek Açıklaması", new { @class = "form-label" })
+                    @Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control", placeholder = "Yetenek adı girin" })
+                    @Html.ValidationMessageFor(x => x.Yetenek, "", new { @class = "text-danger" })
+                </div>
 
-<form method="post">
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.Oran, "Derece", new { @class = "form-label" })
+                    @Html.TextBoxFor(x => x.Oran, new { @class = "form-control", placeholder = "0-100 arasında değer girin" })
+                    @Html.ValidationMessageFor(x => x.Oran, "", new { @class = "text-danger" })
+                </div>
 
-    <br />
-    @Html.Label("Yetenek Açıklaması")
-    @Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Yetenek, "", new { @style = "color:red" })
-    <br />
-    @Html.Label("Derece")
-    @Html.TextBoxFor(x => x.Oran, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Oran, "", new { @style = "color:red" })
-    <br />
-    <button class="btn btn-outline-info">Kaydet</button>
-    <a href="/Yetenek/Index/" class="btn btn-outline-warning">Vazgeç</a>
-
-</form>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                    <a href="/Yetenek/Index/" class="btn btn-warning">Vazgeç</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
