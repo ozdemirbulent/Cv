@@ -7,8 +7,6 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-
 <br />
 <h2>Admin Paneli</h2>
 <table class="table table-bordered table table-striped table table-borderless">
@@ -22,19 +20,14 @@
     {
         <tr>
             <td>@item.ID</td>
-            <td>@item.KullaniciAdi</td>    
+            <td>@item.KullaniciAdi</td>
             <td>
                 <a href="/Admin/AdminDuzenle/
                @item.ID" class="btn btn-warning">Düzenle</a>
             </td>
             <td>
-
-                @*<a href="/Admin/AdminSil/
-        @item.ID" class="btn btn-danger">Sil</a>*@
-
                 @Html.ActionLink("Sil", "AdminSil", new { ID = item.ID },
               new { @class = "btn btn-outline-danger", onclick = "return confirm ( 'Silmek İstediğinizden Emin misin ?')" })
-
 
 
             </td>

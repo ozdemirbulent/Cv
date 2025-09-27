@@ -1,62 +1,85 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!doctype html>
 <html lang="en">
 <head>
-    <title>WebSite</title>
+    <title>MyWebSite</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <link rel="stylesheet" href="/login-form-20/css/style.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="img js-fullheight" style="background-image: url(/login-form-20/images/bg.jpg);">
+<body class="img jsgrid-align-center" style="background-image: url('/login-form-20/images/sunset-sunrise-coast-coastal.jpg');">
+
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Mvc Cv Login Paneli</h2>
+                    <h2 class="alert-heading dropdown-menu-dark" style="color:darkred">Mvc Cv Login Paneli</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Bir Hesabın Var Mı ?</h3>
+                        <h3 class="mb-4 text-center" style="box-shadow:revert-layer;color:brown">Bir Hesabın Var Mı ?</h3>
                         <form method="post" class="signin-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Kullanıcı Adınız" name="KullaniciAdi" required>
+ 
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingUsername"style="background-color: brown" placeholder="Kullanıcı Adı" name="KullaniciAdi" required>
+                                <label for="floatingUsername">Kullanıcı Adı</label>
                             </div>
-                            <div class="form-group">
-                                <input id="password-field" type="password" class="form-control" placeholder="Şifreniz"  name="Sifre" required>
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="password" class="form-control" id="floatingPassword" style="background-color: brown" placeholder="Şifre" name="Sifre" required>
+                                <label for="floatingPassword">Şifre</label>
+                                <span toggle="#floatingPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
-                            <div class="w-50">
+
+                            <div class="w-50 mb-3">
                                 <label class="checkbox-wrap checkbox-primary">
                                     Beni Hatırla
                                     <input type="checkbox" checked>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
+
+                            <div class="form-group mb-3">
+                                <button type="submit" style="border-radius:20px;cursor:pointer" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
                             </div>
-                            <div class="form-group d-md-flex">
-                            </div>
-                        </form>                      
+                           
+                            <style>
+                                .btn:hover {
+                                    background-color: burlywood;
+                                    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                                    transform: scale(1.05); 
+                                    transition: all 0.7s ease;
+                                }
+
+                            </style>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
     <script src="/login-form-20/js/jquery.min.js"></script>
     <script src="/login-form-20/js/popper.js"></script>
     <script src="/login-form-20/js/bootstrap.min.js"></script>
     <script src="/login-form-20/js/main.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-
