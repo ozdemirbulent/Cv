@@ -38,20 +38,13 @@
 
             <td>
 
-                @*<a class="btn btn-danger btn-sm" href="/Egitim/EgitimSil/  @item.ID">
-                    <i class="fas fa-trash">
-                    </i>
-                    Sil
-                     </a>*@
-
-                @Html.ActionLink("Sil", "EgitimSil", new { ID = item.ID },
-               new { @class = "btn btn-danger", onclick = "return confirm ( 'Silmek İstediğinizden Emin misin ?')" })
+                <a class="btn btn-danger" href="/EgitimController/EgitimSil/@item.ID" onclick="return confirm ( 'Silmek İstediğinizden Emin misin ?')">Sil</a>
             </td>
+
             <td>
                 <a class="btn btn-info btn-sm" href="/Egitim/EgitimDuzenle/
                                                        @item.ID">
                     <i class="fas fa-pencil-alt">
-
                         Düzenle
                     </i>
                 </a>
